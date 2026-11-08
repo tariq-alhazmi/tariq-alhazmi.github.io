@@ -108,6 +108,19 @@ section{padding:90px 0;border-top:1px solid var(--line)}
 .placeholder{display:grid;place-items:center;height:100%;background:linear-gradient(135deg,#3b2a1e,#1a1410);color:#e8d3b0;font-size:30px;font-weight:700;text-align:center}
 .placeholder small{display:block;font-size:13px;font-weight:400;opacity:.7}
 
+/* live project */
+.live{display:grid;grid-template-columns:1.1fr 1fr;gap:0;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;margin-bottom:24px;transition:.25s}
+.live:hover{border-color:rgba(34,211,238,.5);transform:translateY(-3px)}
+.live-img{position:relative;background:#06121a}
+.live-img img{width:100%;height:100%;object-fit:cover;object-position:top}
+.badge{position:absolute;top:14px;inset-inline-start:14px;background:rgba(6,18,26,.85);color:#4ade80;border:1px solid #14532d;font:600 12px Inter;padding:4px 10px;border-radius:999px}
+.live-txt{padding:28px;display:flex;flex-direction:column}
+.live-txt h3{font-size:24px;margin-bottom:8px}
+.live-txt p{color:var(--muted);font-size:15px}
+.team{color:var(--muted);font-size:13px;margin-top:12px}
+.live .more{margin-top:16px;color:#5eead4;font-weight:600;font-size:14px}
+@media(max-width:860px){.live{grid-template-columns:1fr}}
+
 /* experiment */
 .exp{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;background:var(--card);border:1px dashed var(--line);border-radius:var(--radius);padding:28px}
 .exp .ico{width:58px;height:58px;border-radius:16px;display:grid;place-items:center;background:rgba(47,143,125,.15);color:#6fd0bc;font-size:26px}
@@ -364,7 +377,19 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
 <!-- ============ EXPERIMENT ============ -->
 <section id="lab" style="padding-top:60px">
   <div class="wrap">
-    <div class="head"><div><small>AI Lab</small><h2 data-en="In progress">تجربة قيد التطوير</h2></div></div>
+    <div class="head"><div><small>Lab</small><h2 data-en="Lab & experiments">مختبرات وتجارب</h2></div></div>
+
+    <a class="live" href="https://sites.google.com/view/ai-g2t-a-b-e/full-page-embed" target="_blank">
+      <div class="live-img"><img src="img/crypto-lab.jpg" alt="Crypto lab"><span class="badge">● Live</span></div>
+      <div class="live-txt">
+        <div class="tags"><span class="tag gold">Cybersecurity</span><span class="tag">SHA-256</span><span class="tag">AES</span><span class="tag">RSA</span><span class="tag" data-en="Team of 4">فريق من 4</span></div>
+        <h3 data-en="Interactive Cryptography Lab">مختبر التشفير التفاعلي</h3>
+        <p data-en="An educational web app that explains cybersecurity and encryption through hands-on practice with real algorithms: SHA-256 hashing, symmetric AES encryption/decryption, and asymmetric RSA — generating a key pair, encrypting with the public key and decrypting with the private one.">تطبيق تعليمي يوضّح مفاهيم الأمن السيبراني والتشفير بالتطبيق العملي المباشر وبخوارزميات حقيقية: دوال التجزئة SHA-256، والتشفير المتماثل AES (تشفير وفك)، والتشفير غير المتماثل RSA (توليد زوج مفاتيح، التشفير بالمفتاح العام، وفك التشفير بالخاص).</p>
+        <small class="team" data-en="Built with: Emad Al-Sulami · Badr Al-Thubaiti · Abdullah Al-Zahrani">بالتعاون مع: عماد السلمي · بدر الثبيتي · عبدالله الزهراني</small>
+        <span class="more" data-en="Try it live ↗">جرّبه مباشرة ↗</span>
+      </div>
+    </a>
+
     <div class="exp">
       <div class="ico">◎</div>
       <div>
