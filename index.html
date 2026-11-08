@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>طارق الحازمي | Tariq Alhazmi — AI Developer & UX/UI Designer</title>
+<meta name="description" content="ملف أعمال طارق الحازمي — مطوّر ذكاء اصطناعي ومصمم واجهات وتجربة مستخدم من مكة.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&family=Cairo:wght@800&family=JetBrains+Mono&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0f1112;--bg2:#16191b;--card:#1b1f21;--line:#2a2f32;
+  --text:#ecebe6;--muted:#9a9c98;--gold:#c9a96a;--gold2:#e2c88f;--emerald:#2f8f7d;
+  --radius:20px;--max:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:"IBM Plex Sans Arabic","Inter",system-ui,sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+html[lang="en"] body{font-family:"Inter","IBM Plex Sans Arabic",system-ui,sans-serif}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--max);margin:auto;padding:0 24px}
+
+/* nav */
+nav{position:sticky;top:0;z-index:50;background:rgba(15,17,18,.82);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{font-weight:700;font-size:18px;display:flex;align-items:center;gap:10px}
+.logo b{display:grid;place-items:center;width:36px;height:36px;border-radius:10px;background:var(--gold);color:#111;font-family:Inter;font-size:15px}
+.links{display:flex;gap:26px;font-size:15px;color:var(--muted)}
+.links a:hover{color:var(--text)}
+.lang{border:1px solid var(--line);background:transparent;color:var(--text);padding:7px 16px;border-radius:999px;cursor:pointer;font:inherit;font-size:14px}
+.lang:hover{border-color:var(--gold);color:var(--gold2)}
+
+/* hero */
+.hero{padding:110px 0 90px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:-40% -10% auto auto;width:620px;height:620px;background:radial-gradient(circle,rgba(201,169,106,.18),transparent 65%);pointer-events:none}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);padding:6px 14px;border-radius:999px;font-size:13px;color:var(--muted)}
+.chip i{width:8px;height:8px;border-radius:50%;background:var(--emerald);box-shadow:0 0 0 4px rgba(47,143,125,.2)}
+.hero h1{font-size:clamp(36px,5.6vw,66px);line-height:1.2;margin:22px 0 18px;font-weight:700;max-width:900px}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p{font-size:clamp(16px,1.6vw,19px);color:var(--muted);max-width:640px}
+.cta{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+.btn{padding:13px 24px;border-radius:999px;font-weight:600;font-size:15px;border:1px solid var(--line);transition:.2s}
+.btn.primary{background:var(--gold);color:#111;border-color:var(--gold)}
+.btn.primary:hover{background:var(--gold2)}
+.btn:hover{border-color:var(--gold)}
+.stats{display:flex;gap:46px;margin-top:60px;flex-wrap:wrap}
+.stats div b{display:block;font-size:30px;font-family:Inter;color:var(--text)}
+.stats div span{color:var(--muted);font-size:14px}
+
+/* sections */
+section{padding:90px 0;border-top:1px solid var(--line)}
+.head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:44px;flex-wrap:wrap}
+.head small{color:var(--gold);font-size:13px;letter-spacing:.08em;font-family:Inter;text-transform:uppercase}
+.head h2{font-size:clamp(28px,3.4vw,40px);line-height:1.25;margin-top:6px}
+.head p{color:var(--muted);max-width:460px}
+
+/* project (case study) */
+.project{background:var(--card);border:1px solid var(--line);border-radius:28px;overflow:hidden;margin-bottom:34px}
+.project .shot{background:var(--bg2);padding:28px 28px 0}
+.project .shot img{border-radius:14px 14px 0 0;box-shadow:0 -10px 50px rgba(0,0,0,.35)}
+.project .body{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;padding:36px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:14px}
+.tag{font-size:12px;padding:4px 11px;border-radius:999px;border:1px solid var(--line);color:var(--muted);font-family:Inter}
+.tag.gold{border-color:rgba(201,169,106,.5);color:var(--gold2)}
+.project h3{font-size:28px;margin-bottom:10px}
+.project p{color:var(--muted)}
+.facts{display:grid;gap:14px;align-content:start}
+.fact{border-inline-start:2px solid var(--gold);padding-inline-start:14px}
+.fact b{display:block;font-size:14px}
+.fact span{color:var(--muted);font-size:14px}
+.status{display:inline-flex;align-items:center;gap:8px;margin-top:20px;font-size:13px;color:var(--gold2);background:rgba(201,169,106,.1);padding:6px 12px;border-radius:10px}
+.plinks{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;padding:0 36px 36px}
+.gallery img{border-radius:12px;border:1px solid var(--line);cursor:zoom-in;aspect-ratio:16/10;object-fit:cover;object-position:top}
+
+/* athar brand */
+.ab-shot{background:linear-gradient(160deg,#0F4C45,#14181A)}
+.brand{display:grid;grid-template-columns:1.4fr 1fr;gap:20px;padding:0 36px 20px}
+.brand-logo{border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+.brand-side{background:#FAF6EF;color:#14181A;border-radius:16px;padding:22px;display:grid;gap:14px;align-content:start}
+.swatches{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.swatches span{border-radius:12px;padding:14px 12px 10px;color:#F4EFE4;font-family:"JetBrains Mono",monospace;font-size:12px;direction:ltr;text-align:left}
+.swatches i{display:block;font-style:normal;font-family:Inter;font-weight:600;font-size:13px}
+.type-spec{display:flex;justify-content:space-between;align-items:baseline;border-top:1px solid #EDE3D0;padding-top:12px;font-size:26px}
+.type-spec small{font-size:12px;color:#6E675A;font-family:Inter}
+.tiers{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;padding:0 36px 24px}
+.tiers figure img{border-radius:14px;cursor:zoom-in}
+.tiers figcaption{display:flex;justify-content:space-between;font-size:14px;margin-top:8px}
+.tiers figcaption span{color:var(--muted)}
+.duo{display:grid;grid-template-columns:1fr 1fr;gap:18px;padding-bottom:28px!important}
+.duo img{border-radius:14px!important;cursor:zoom-in}
+.duo figcaption,.g2+figcaption{font-size:14px;color:var(--muted);margin-top:8px}
+.gallery.g2{grid-template-columns:1fr 1fr}
+
+/* designs grid */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;display:flex;flex-direction:column;transition:.25s}
+.card:hover{transform:translateY(-4px);border-color:rgba(201,169,106,.45)}
+.card .img{aspect-ratio:16/10;overflow:hidden;background:var(--bg2);position:relative}
+.card .img img{width:100%;height:100%;object-fit:cover;object-position:top}
+.card .img .phone{position:absolute;bottom:-30px;inset-inline-end:22px;width:24%;border-radius:16px;border:3px solid #222;box-shadow:0 10px 30px rgba(0,0,0,.4)}
+.card .txt{padding:24px;flex:1;display:flex;flex-direction:column}
+.card h3{font-size:21px;margin-bottom:6px}
+.card p{color:var(--muted);font-size:15px;flex:1}
+.card .more{margin-top:16px;color:var(--gold2);font-size:14px;font-weight:600}
+.placeholder{display:grid;place-items:center;height:100%;background:linear-gradient(135deg,#3b2a1e,#1a1410);color:#e8d3b0;font-size:30px;font-weight:700;text-align:center}
+.placeholder small{display:block;font-size:13px;font-weight:400;opacity:.7}
+
+/* experiment */
+.exp{display:grid;grid-template-columns:auto 1fr auto;gap:24px;align-items:center;background:var(--card);border:1px dashed var(--line);border-radius:var(--radius);padding:28px}
+.exp .ico{width:58px;height:58px;border-radius:16px;display:grid;place-items:center;background:rgba(47,143,125,.15);color:#6fd0bc;font-size:26px}
+.exp h3{font-size:20px}
+.exp p{color:var(--muted);font-size:15px}
+.steps{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.steps span{font-size:12px;padding:3px 10px;border-radius:999px;background:var(--bg2);color:var(--muted)}
+.steps span.done{color:#6fd0bc}
+
+/* skills */
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.sk{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px}
+.sk h3{font-size:19px;margin-bottom:18px;display:flex;align-items:center;gap:10px}
+.sk h3 i{font-style:normal;color:var(--gold)}
+.pills{display:flex;flex-wrap:wrap;gap:8px}
+.pills span{padding:7px 14px;border-radius:10px;background:var(--bg2);border:1px solid var(--line);font-size:14px;font-family:Inter}
+
+/* about */
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:40px}
+.about p{color:var(--muted);font-size:17px;margin-bottom:16px}
+.timeline{display:grid;gap:18px}
+.tl{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 20px}
+.tl b{display:block}
+.tl span{color:var(--muted);font-size:14px}
+
+/* contact */
+.contact{text-align:center;padding:110px 0}
+.contact h2{font-size:clamp(30px,4vw,48px);margin-bottom:14px}
+.contact p{color:var(--muted);margin-bottom:30px}
+.contact .cta{justify-content:center}
+footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:14px;text-align:center}
+
+/* lightbox */
+.lb{position:fixed;inset:0;background:rgba(0,0,0,.88);display:none;place-items:center;z-index:100;padding:30px;cursor:zoom-out}
+.lb.on{display:block;overflow:auto}
+.lb img{max-width:min(1300px,96vw);margin:auto;border-radius:12px}
+
+@media(max-width:860px){
+  .links{display:none}
+  .project .body,.about,.skills{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  .gallery{grid-template-columns:1fr 1fr}
+  .brand,.duo{grid-template-columns:1fr}
+  .tiers{grid-template-columns:1fr 1fr;padding-inline:22px}
+  .brand{padding-inline:22px}
+  .exp{grid-template-columns:1fr}
+  .project .body,.gallery{padding-inline:22px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo"><b>TA</b><span data-en="Tariq Alhazmi">طارق الحازمي</span></a>
+    <div class="links">
+      <a href="#apps" data-en="Apps">التطبيقات</a>
+      <a href="#designs" data-en="UI/UX">تصميم الواجهات</a>
+      <a href="#skills" data-en="Skills">المهارات</a>
+      <a href="#about" data-en="About">عنّي</a>
+      <a href="#contact" data-en="Contact">تواصل</a>
+    </div>
+    <button class="lang" id="lang">English</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="chip"><i></i><span data-en="Open to work · Makkah, Saudi Arabia">متاح للعمل · مكة المكرمة</span></span>
+    <h1 data-en-html="I build <em>smart products</em> — from the data to the interface.">أبني <em>منتجات ذكية</em> من البيانات إلى الواجهة.</h1>
+    <p data-en="AI developer and UX/UI designer. Computer Science graduate (AI track) from Umm Al-Qura University. I design the experience in Figma, then build it in code.">مطوّر ذكاء اصطناعي ومصمم واجهات وتجربة مستخدم. خريج علوم الحاسب (مسار الذكاء الاصطناعي) من جامعة أم القرى. أصمم التجربة في فيقما، ثم أبنيها بالكود.</p>
+    <div class="cta">
+      <a href="#apps" class="btn primary" data-en="View my work">شاهد أعمالي</a>
+      <a href="https://github.com/tariq-alhazmi" target="_blank" class="btn">GitHub ↗</a>
+    </div>
+    <div class="stats">
+      <div><b>2</b><span data-en="Full web apps">تطبيقات ويب كاملة</span></div>
+      <div><b>5</b><span data-en="UI/UX designs">تصاميم واجهات</span></div>
+      <div><b>3</b><span data-en="Accessible themes in Mizan">ثيمات في ميزان بينها وضع لعمى الألوان</span></div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ APPS ============ -->
+<section id="apps">
+  <div class="wrap">
+    <div class="head">
+      <div><small>Development</small><h2 data-en="Applications">التطبيقات</h2></div>
+      <p data-en="Full apps I designed and built end to end. Running as local demos; database and hosting are next.">تطبيقات كاملة صممتها وبرمجتها من البداية للنهاية. تعمل كنسخ تجريبية محلية، والخطوة القادمة قاعدة البيانات والاستضافة.</p>
+    </div>
+
+    <!-- Mizan -->
+    <article class="project">
+      <div class="shot"><img src="img/mizan-themes.jpg" alt="Mizan themes" class="zoom"></div>
+      <div class="body">
+        <div>
+          <div class="tags"><span class="tag gold">Laravel</span><span class="tag gold">TypeScript</span><span class="tag">Gemini AI</span><span class="tag">Accessibility</span></div>
+          <h3 data-en="Mizan — AI Budget Tracker">ميزان — متتبع المصاريف الذكي</h3>
+          <p data-en="A personal finance app that organizes your budget, categorizes spending automatically with AI, and gives proactive tips before you overspend. You can log expenses in plain language through a Gemini-powered chat (“I spent 45 SAR on lunch”).">تطبيق لإدارة الميزانية الشخصية: ينظّم مصاريفك، ويصنّفها تلقائياً بالذكاء الاصطناعي، ويعطيك تنبيهات استباقية قبل تجاوز الميزانية. تقدر تسجّل مصروفك بلغة طبيعية عبر محادثة مدعومة بـ Gemini («صرفت 45 ريال على الغداء»).</p>
+          <span class="status" data-en="● Local demo · launch soon">● نسخة تجريبية محلية · الإطلاق قريباً</span>
+          <div class="plinks">
+            <a class="btn" href="https://github.com/tariq-alhazmi" target="_blank" data-en="Source code ↗">الكود على GitHub ↗</a>
+          </div>
+        </div>
+        <div class="facts">
+          <div class="fact"><b data-en="Smart dashboard">لوحة تحكم ذكية</b><span data-en="Budget left, month-over-month comparison and top category at a glance.">الميزانية المتبقية والمقارنة بالشهر السابق وأعلى تصنيف في نظرة واحدة.</span></div>
+          <div class="fact"><b data-en="AI categorization & chat">تصنيف ومحادثة بالذكاء الاصطناعي</b><span data-en="Natural-language entry, auto-categories and next-month forecast.">إدخال باللغة الطبيعية، تصنيف تلقائي، وتوقّع مصاريف الشهر القادم.</span></div>
+          <div class="fact"><b data-en="3 themes × light/dark">3 ثيمات × فاتح وداكن</b><span data-en="Luxury, Fun and a colour-blind mode using blue/gold and striped patterns instead of colour alone.">Luxury وFun ووضع لعمى الألوان يعتمد الأزرق والذهبي ونقوشاً مخططة بدل الاعتماد على اللون فقط.</span></div>
+          <div class="fact"><b data-en="Reports & export">تقارير وتصدير</b><span data-en="Interactive charts and Excel/CSV export.">رسوم بيانية تفاعلية وتصدير Excel وCSV.</span></div>
+        </div>
+      </div>
+      <div class="gallery">
+        <img src="img/mizan-dashboard-dark.jpg" class="zoom" alt="">
+        <img src="img/mizan-dashboard-light.jpg" class="zoom" alt="">
+        <img src="img/mizan-reports.jpg" class="zoom" alt="">
+        <img src="img/mizan-ai.jpg" class="zoom" alt="">
+        <img src="img/mizan-add.jpg" class="zoom" alt="">
+        <img src="img/mizan-colorblind.jpg" class="zoom" alt="">
+      </div>
+    </article>
+
+    <!-- Athar Baqi -->
+    <article class="project">
+      <div class="shot ab-shot"><img src="img/athar-app-home.jpg" alt="Athar Baqi app" class="zoom"></div>
+      <div class="body">
+        <div>
+          <div class="tags"><span class="tag gold">Laravel</span><span class="tag gold">Brand Identity</span><span class="tag">Figma</span><span class="tag">QR</span></div>
+          <h3 data-en="Athar Baqi — Volunteer Loyalty Platform">أثر باقي — منصة ولاء ساعات التطوع</h3>
+          <p data-en="A platform that turns every volunteer hour into loyalty points. I built it end to end: the brand identity, the UI in Figma, then the working app — volunteer QR cards, hour logging, a rewards store, a corporate CSR portal and an admin dashboard.">منصة تحوّل كل ساعة تطوع إلى نقاط ولاء. بنيتها كاملة: الهوية البصرية، ثم الواجهات في فيقما، ثم التطبيق الفعلي. فيها بطاقة متطوع رقمية بـ QR، وتسجيل الساعات، ومتجر خصومات، وبوابة للشركات (المسؤولية الاجتماعية)، ولوحة إدارة.</p>
+          <span class="status" data-en="● Local demo · launch soon">● نسخة تجريبية محلية · الإطلاق قريباً</span>
+          <div class="plinks">
+            <a class="btn" href="https://github.com/tariq-alhazmi" target="_blank" data-en="Source code ↗">الكود على GitHub ↗</a>
+            <a class="btn" href="https://www.figma.com/design/ObXYgEv0hvXOQeDuJXrDMQ/Untitled?node-id=0-1" target="_blank" data-en="Figma design ↗">التصميم على فيقما ↗</a>
+          </div>
+        </div>
+        <div class="facts">
+          <div class="fact"><b data-en="4-tier membership">نظام مستويات من 4 درجات</b><span data-en="Seed → Sprout → Tree → Legacy, each with its own digital card.">بذرة ← نبتة ← شجرة ← إرث، لكل مستوى بطاقته الرقمية.</span></div>
+          <div class="fact"><b data-en="Three portals">ثلاث بوابات</b><span data-en="Volunteer, partner companies and association admin.">المتطوع، والشركات الشريكة، وإدارة الجمعية.</span></div>
+          <div class="fact"><b data-en="Design system → code">نظام تصميم ← كود</b><span data-en="Tokens (colour, type, spacing, radius, shadow) exported as JSON and a full CSS design system — RTL, Cairo font, dark mode.">رموز تصميم (ألوان، خطوط، مسافات، زوايا، ظلال) بصيغة JSON، ونظام تصميم CSS كامل يدعم RTL وخط Cairo والوضع الداكن.</span></div>
+        </div>
+      </div>
+
+      <!-- brand -->
+      <div class="brand">
+        <div class="brand-logo"><img src="img/athar-logo.jpg" alt="Athar Baqi logo" class="zoom"></div>
+        <div class="brand-side">
+          <b data-en="Identity & palette">الهوية والألوان</b>
+          <div class="swatches">
+            <span style="background:#14181A"><i>Charcoal</i>#14181A</span>
+            <span style="background:#0F4C45"><i>Emerald</i>#0F4C45</span>
+            <span style="background:#B8975A;color:#14181A"><i>Gold</i>#B8975A</span>
+            <span style="background:#E9DFCC;color:#14181A"><i>Sand</i>#E9DFCC</span>
+          </div>
+          <div class="type-spec"><span style="font-family:Cairo,sans-serif;font-weight:800">أثر باقي Aa</span><small>Cairo 400–800 · JetBrains Mono</small></div>
+        </div>
+      </div>
+      <div class="tiers">
+        <figure><img src="img/athar-tier-seed.jpg" class="zoom" alt=""><figcaption><b data-en="Seed">بذرة</b><span data-en="0–20 hrs">0–20 ساعة</span></figcaption></figure>
+        <figure><img src="img/athar-tier-sprout.jpg" class="zoom" alt=""><figcaption><b data-en="Sprout">نبتة</b><span data-en="21–50 hrs">21–50 ساعة</span></figcaption></figure>
+        <figure><img src="img/athar-tier-tree.jpg" class="zoom" alt=""><figcaption><b data-en="Tree">شجرة</b><span data-en="51–100 hrs">51–100 ساعة</span></figcaption></figure>
+        <figure><img src="img/athar-tier-legacy.jpg" class="zoom" alt=""><figcaption><b data-en="Legacy">إرث</b><span data-en="101+ hrs">+101 ساعة</span></figcaption></figure>
+      </div>
+
+      <!-- app screens -->
+      <div class="gallery">
+        <img src="img/athar-app-card.jpg" class="zoom" alt="" title="بطاقتي الرقمية">
+        <img src="img/athar-app-hours.jpg" class="zoom" alt="" title="تسجيل الساعات">
+        <img src="img/athar-app-opps.jpg" class="zoom" alt="" title="فرص التطوع">
+        <img src="img/athar-app-store.jpg" class="zoom" alt="" title="متجر الخصومات">
+        <img src="img/athar-app-partners.jpg" class="zoom" alt="" title="بوابة الشركات">
+        <img src="img/athar-app-admin.jpg" class="zoom" alt="" title="لوحة الإدارة">
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============ DESIGNS ============ -->
+<section id="designs">
+  <div class="wrap">
+    <div class="head">
+      <div><small>UI / UX</small><h2 data-en="Interface Design">تصميم الواجهات</h2></div>
+      <p data-en="Interfaces designed in Figma — for real clients, course projects and my own products.">واجهات صممتها في فيقما، لعملاء حقيقيين ولمشاريع دراسية ولمنتجاتي الخاصة.</p>
+    </div>
+    <!-- THEIT case study -->
+    <article class="project">
+      <div class="shot duo">
+        <figure><img src="img/theit-home-cover.jpg" class="zoom" data-full="img/theit-home.jpg" alt=""><figcaption data-en="Main theme">التصميم الأساسي</figcaption></figure>
+        <figure><img src="img/theit-winter-home-cover.jpg" class="zoom" data-full="img/theit-winter-home.jpg" alt=""><figcaption data-en="Winter ❄️ seasonal theme">نسخة الشتاء ❄️ الموسمية</figcaption></figure>
+      </div>
+      <div class="body">
+        <div>
+          <div class="tags"><span class="tag gold" data-en="Real client">عميل حقيقي</span><span class="tag gold">E-commerce</span><span class="tag" data-en="Zid platform">منصة زد</span><span class="tag">1920 × 1080</span></div>
+          <h3 data-en="THE IT Coffee — Store Redesign">THE IT Coffee — إعادة تصميم المتجر</h3>
+          <p data-en="Full redesign of a specialty-coffee store on Zid: every page and all 10 products. The goal was to keep the coffee identity while letting customers order straight from the home page. I delivered two designs — the main theme and a seasonal Winter version.">إعادة تصميم كاملة لمتجر قهوة مختصة على منصة زد، شملت كل الصفحات والمنتجات العشرة. الهدف: الحفاظ على هوية القهوة، مع تمكين العميل من الطلب مباشرة من الصفحة الرئيسية. سلّمت تصميمين: الأساسي، ونسخة موسمية للشتاء.</p>
+          <div class="plinks"><a class="btn" href="https://www.figma.com/design/WlXacnevGb4oJMa5bysAy8/the-it?node-id=20-182" target="_blank" data-en="Open in Figma ↗">افتح في فيقما ↗</a></div>
+        </div>
+        <div class="facts">
+          <div class="fact"><b data-en="“Order now” on every card">«اطلب الآن» في كل بطاقة</b><span data-en="Checkout next to add-to-cart — fewer steps to buy.">زر إتمام الطلب بجانب «للسلة» لتقليل خطوات الشراء.</span></div>
+          <div class="fact"><b data-en="Product pages that tell a story">صفحات منتج تحكي القصة</b><span data-en="Origin, processing, tasting-note illustrations and a brew guide (ratio, temperature, time).">المنشأ والمعالجة ورسومات لإيحاءات النكهة ودليل تحضير (النسبة، الحرارة، الزمن).</span></div>
+          <div class="fact"><b data-en="18 screens per theme">18 شاشة لكل تصميم</b><span data-en="Home, categories, 10 products, cart, checkout, success, policies and mega menu.">الرئيسية، الأقسام، 10 منتجات، السلة، إتمام الطلب، تأكيد الطلب، السياسات والقائمة.</span></div>
+        </div>
+      </div>
+      <div class="gallery g2">
+        <img src="img/theit-product-cover.jpg" class="zoom" data-full="img/theit-product.jpg" alt="">
+        <img src="img/theit-winter-product-cover.jpg" class="zoom" data-full="img/theit-winter-product.jpg" alt="">
+      </div>
+    </article>
+
+    <div class="grid">
+      <a class="card" href="https://www.figma.com/design/ObXYgEv0hvXOQeDuJXrDMQ/Untitled?node-id=0-1" target="_blank">
+        <div class="img"><img src="img/athar-baqi.jpg" alt=""></div>
+        <div class="txt">
+          <div class="tags"><span class="tag gold" data-en="Product + Brand">منتج + هوية</span><span class="tag">RTL</span></div>
+          <h3 data-en="Athar Baqi — 8 screens">أثر باقي — 8 شاشات</h3>
+          <p data-en="Landing page, digital card, hour logging, opportunities, rewards store, partner portal, admin dashboard and an AI assistant.">الصفحة التعريفية، البطاقة الرقمية، تسجيل الساعات، فرص التطوع، متجر الخصومات، بوابة الشركات، لوحة الإدارة، والمساعد الذكي.</p>
+          <span class="more" data-en="Open in Figma ↗">افتح في فيقما ↗</span>
+        </div>
+      </a>
+      <a class="card" href="https://www.figma.com/design/k4mnkaGh9F7g8T1P90MRQE/Mazeej-Coffee?node-id=18-2" target="_blank">
+        <div class="img"><img src="img/mazeej-web.jpg" alt=""><img class="phone" src="img/mazeej-mobile.jpg" alt=""></div>
+        <div class="txt">
+          <div class="tags"><span class="tag gold" data-en="Responsive">متجاوب</span><span class="tag" data-en="Team project · HCI">مشروع فريق · HCI</span></div>
+          <h3 data-en="Mazeej Coffee — Web & Mobile">مزيج كوفي — ويب وجوال</h3>
+          <p data-en="A coffee ordering experience designed for both desktop and mobile: menu, product details, cart and order confirmation, with a full clickable prototype.">تجربة طلب قهوة مصممة لسطح المكتب والجوال: القائمة، تفاصيل المنتج، السلة، وتأكيد الطلب، مع نموذج تفاعلي كامل.</p>
+          <span class="more" data-en="Open in Figma ↗">افتح في فيقما ↗</span>
+        </div>
+      </a>
+      <a class="card" href="https://www.figma.com/design/49KLhpKvkqH8dmmlfv4lXX/booked_eve?node-id=0-1" target="_blank">
+        <div class="img"><img src="img/booked-eve.jpg" alt=""></div>
+        <div class="txt">
+          <div class="tags"><span class="tag gold" data-en="Booking flow">تدفق حجز</span><span class="tag">Design System</span></div>
+          <h3 data-en="Booked eve. — Event Tickets">Booked eve. — حجز تذاكر الفعاليات</h3>
+          <p data-en="Discover and book Jeddah events: browsing, event details, booking, payment and confirmation — including error states like a full time slot or a declined payment.">اكتشف واحجز فعاليات جدة: التصفح، تفاصيل الفعالية، الحجز، الدفع، والتأكيد، مع حالات الخطأ مثل امتلاء الموعد أو رفض الدفع.</p>
+          <span class="more" data-en="Open in Figma ↗">افتح في فيقما ↗</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIMENT ============ -->
+<section id="lab" style="padding-top:60px">
+  <div class="wrap">
+    <div class="head"><div><small>AI Lab</small><h2 data-en="In progress">تجربة قيد التطوير</h2></div></div>
+    <div class="exp">
+      <div class="ico">◎</div>
+      <div>
+        <h3 data-en="School Performance Analyzer">محلّل أداء المدارس</h3>
+        <p data-en="An ML project to analyze schools’ performance and progress. Data cleaning is done and I’ve started building the machine-learning model.">مشروع تعلّم آلي لتحليل أداء المدارس وتقدّمها. انتهيت من تنظيف البيانات وبدأت بناء نموذج التعلّم الآلي.</p>
+        <div class="steps"><span class="done" data-en="✓ Data cleaning">✓ تنظيف البيانات</span><span class="done" data-en="◐ ML model">◐ نموذج التعلّم الآلي</span><span data-en="○ Dashboard">○ لوحة النتائج</span></div>
+      </div>
+      <a class="btn" href="https://github.com/tariq-alhazmi" target="_blank">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SKILLS ============ -->
+<section id="skills">
+  <div class="wrap">
+    <div class="head"><div><small>Skills</small><h2 data-en="Skills">المهارات</h2></div></div>
+    <div class="skills">
+      <div class="sk"><h3><i>{ }</i><span data-en="Development & AI">البرمجة والذكاء الاصطناعي</span></h3>
+        <div class="pills"><span>Python</span><span>Machine Learning</span><span>Data Cleaning</span><span>Java</span><span>SQL</span><span>Laravel</span><span>Data Structures</span><span>Algorithms</span><span>Linux</span><span>Bash</span><span>Git & GitHub</span><span>MIPS Assembly</span></div>
+      </div>
+      <div class="sk"><h3><i>◇</i><span data-en="Design">التصميم</span></h3>
+        <div class="pills"><span>Figma</span><span>UI Design</span><span>UX Flows</span><span>Prototyping</span><span>Design Systems</span><span>Accessibility</span><span>Brand Identity</span><span>RTL Interfaces</span><span>Canva</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about">
+  <div class="wrap about">
+    <div>
+      <div class="head" style="margin-bottom:24px"><div><small>About</small><h2 data-en="About me">عنّي</h2></div></div>
+      <p data-en="I’m Tariq, from Makkah. I studied Computer Science with an AI specialization at Umm Al-Qura University (GPA 3.5/4). I enjoy the whole journey of a product: understanding the user, designing the experience, then writing the code that brings it to life.">أنا طارق، من مكة المكرمة. درست علوم الحاسب بتخصص الذكاء الاصطناعي في جامعة أم القرى (معدل 3.5 من 4). أستمتع بالرحلة الكاملة للمنتج: فهم المستخدم، ثم تصميم التجربة، ثم كتابة الكود اللي يحييها.</p>
+      <p data-en="Right now I’m going deeper into machine learning and data cleaning, and preparing my apps for public launch.">حالياً أتعمّق في التعلّم الآلي وتنظيف البيانات، وأجهّز تطبيقاتي للإطلاق العام.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl"><b data-en="BSc Computer Science — AI track">بكالوريوس علوم الحاسب — مسار الذكاء الاصطناعي</b><span data-en="Umm Al-Qura University · GPA 3.5/4">جامعة أم القرى · معدل 3.5/4</span></div>
+      <div class="tl"><b data-en="Hajj season — Mashaer Holy Sites Train">موسم الحج — قطار المشاعر المقدسة</b><span data-en="Hands-on work under pressure serving pilgrims">عمل ميداني تحت الضغط في خدمة ضيوف الرحمن</span></div>
+      <div class="tl"><b data-en="Training">دورات</b><span data-en="Satr (programming & Linux) · Tekkie Uni intensive coding · Advanced programming & English">منصة سطر (البرمجة ولينكس) · Tekkie Uni برمجة مكثفة · برمجة متقدمة ولغة إنجليزية</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <h2 data-en="Let’s build something together">خلّنا نبني شي مع بعض</h2>
+    <p data-en="Open to AI development and UX/UI roles.">متاح لوظائف تطوير الذكاء الاصطناعي وتصميم الواجهات وتجربة المستخدم.</p>
+    <div class="cta">
+      <a class="btn primary" href="mailto:tariqalhazmi300@gmail.com">tariqalhazmi300@gmail.com</a>
+      <a class="btn" href="https://github.com/tariq-alhazmi" target="_blank">GitHub ↗</a>
+    </div>
+  </div>
+</section>
+
+<footer><span data-en="© 2026 Tariq Alhazmi · Makkah">© 2026 طارق الحازمي · مكة المكرمة</span></footer>
+
+<div class="lb" id="lb"><img alt=""></div>
+
+<script>
+(function(){
+  var btn=document.getElementById('lang'),html=document.documentElement;
+  var els=[].slice.call(document.querySelectorAll('[data-en],[data-en-html]'));
+  els.forEach(function(e){e._ar=e.innerHTML});
+  function set(l){
+    html.lang=l;html.dir=l==='ar'?'rtl':'ltr';
+    els.forEach(function(e){
+      if(l==='ar'){e.innerHTML=e._ar}
+      else if(e.dataset.enHtml){e.innerHTML=e.dataset.enHtml}
+      else{e.textContent=e.dataset.en}
+    });
+    btn.textContent=l==='ar'?'English':'العربية';
+    try{localStorage.setItem('lang',l)}catch(_){}
+  }
+  btn.onclick=function(){set(html.lang==='ar'?'en':'ar')};
+  var saved=null;try{saved=localStorage.getItem('lang')}catch(_){}
+  if(saved==='en')set('en');
+  var lb=document.getElementById('lb'),li=lb.querySelector('img');
+  document.querySelectorAll('.zoom').forEach(function(i){i.onclick=function(){li.src=i.dataset.full||i.src;lb.classList.add('on')}});
+  lb.onclick=function(){lb.classList.remove('on')};
+})();
+</script>
+</body>
+</html>
