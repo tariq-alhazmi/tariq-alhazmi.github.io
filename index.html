@@ -138,6 +138,18 @@ section{padding:90px 0;border-top:1px solid var(--line)}
 .contact h2{font-size:clamp(30px,4vw,48px);margin-bottom:14px}
 .contact p{color:var(--muted);margin-bottom:30px}
 .contact .cta{justify-content:center}
+.book{max-width:760px;margin:56px auto 0;background:var(--card);border:1px solid var(--line);border-radius:24px;padding:32px;text-align:start}
+.book h3{font-size:24px}
+.book>p{color:var(--muted);margin:4px 0 22px}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.fields label{display:grid;gap:6px;font-size:14px;color:var(--muted)}
+.fields .full{grid-column:1/-1}
+.fields input,.fields select,.fields textarea{font:inherit;color:var(--text);background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:11px 14px;color-scheme:dark}
+.fields input:focus,.fields select:focus,.fields textarea:focus{outline:none;border-color:var(--gold)}
+.book-actions{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}
+.book-actions .btn{cursor:pointer;font:inherit;font-weight:600;background:transparent;color:var(--text)}
+.book-actions .btn.primary{background:var(--gold);color:#111}
+@media(max-width:600px){.fields{grid-template-columns:1fr}.book{padding:22px}}
 footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-size:14px;text-align:center}
 
 /* lightbox */
@@ -168,7 +180,7 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
       <a href="#designs" data-en="UI/UX">تصميم الواجهات</a>
       <a href="#skills" data-en="Skills">المهارات</a>
       <a href="#about" data-en="About">عنّي</a>
-      <a href="#contact" data-en="Contact">تواصل</a>
+      <a href="#book" data-en="Book a meeting">احجز موعد</a>
     </div>
     <button class="lang" id="lang">English</button>
   </div>
@@ -408,6 +420,34 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
       <a class="btn" href="https://www.linkedin.com/in/tariq-al-hazmi-b10035448/" target="_blank">LinkedIn ↗</a>
       <a class="btn" href="https://github.com/tariq-alhazmi" target="_blank">GitHub ↗</a>
     </div>
+
+    <form class="book" id="book">
+      <h3 data-en="Book a meeting">احجز موعد</h3>
+      <p data-en="Pick a time that suits you — the request is sent to me on WhatsApp and I’ll confirm.">اختر الوقت المناسب لك، ويوصلني الطلب على واتساب وأأكده لك.</p>
+      <div class="fields">
+        <label><span data-en="Name">الاسم</span><input name="name" required></label>
+        <label><span data-en="Company (optional)">الجهة (اختياري)</span><input name="company"></label>
+        <label><span data-en="Meeting type">نوع الموعد</span>
+          <select name="type">
+            <option data-en="Job interview">مقابلة عمل</option>
+            <option data-en="Project discussion">مناقشة مشروع</option>
+            <option data-en="Quick intro call">مكالمة تعارف</option>
+          </select></label>
+        <label><span data-en="Format">طريقة الاجتماع</span>
+          <select name="mode">
+            <option data-en="Online (Zoom / Meet / Teams)">أونلاين (Zoom / Meet / Teams)</option>
+            <option data-en="Phone call">مكالمة هاتفية</option>
+            <option data-en="In person — Makkah">حضوري — مكة</option>
+          </select></label>
+        <label><span data-en="Date">التاريخ</span><input type="date" name="date" required></label>
+        <label><span data-en="Time">الوقت</span><input type="time" name="time" required min="08:00" max="22:00"></label>
+        <label class="full"><span data-en="Notes (optional)">ملاحظات (اختياري)</span><textarea name="notes" rows="2"></textarea></label>
+      </div>
+      <div class="book-actions">
+        <button type="submit" class="btn primary" data-en="Send request on WhatsApp">أرسل الطلب على واتساب</button>
+        <button type="button" class="btn" id="bookMail" data-en="Send by email instead">أو أرسله بالإيميل</button>
+      </div>
+    </form>
   </div>
 </section>
 
@@ -436,6 +476,24 @@ footer{border-top:1px solid var(--line);padding:26px 0;color:var(--muted);font-s
   var lb=document.getElementById('lb'),li=lb.querySelector('img');
   document.querySelectorAll('.zoom').forEach(function(i){i.onclick=function(){li.src=i.dataset.full||i.src;lb.classList.add('on')}});
   lb.onclick=function(){lb.classList.remove('on')};
+
+  // booking
+  var f=document.getElementById('book');
+  var d=f.querySelector('[name=date]');d.min=new Date().toISOString().slice(0,10);
+  function msg(){
+    var g=function(n){return (f.querySelector('[name='+n+']').value||'').trim()};
+    var sel=function(n){var s=f.querySelector('[name='+n+']');return s.options[s.selectedIndex].text};
+    var en=html.lang==='en';
+    var L=en?['Hi Tariq, I’d like to book a meeting:','Name','Company','Type','Format','Date','Time','Notes']
+            :['مرحباً طارق، أرغب بحجز موعد:','الاسم','الجهة','نوع الموعد','الطريقة','التاريخ','الوقت','ملاحظات'];
+    var rows=[[L[1],g('name')],[L[2],g('company')],[L[3],sel('type')],[L[4],sel('mode')],[L[5],g('date')],[L[6],g('time')],[L[7],g('notes')]]
+      .filter(function(r){return r[1]}).map(function(r){return '• '+r[0]+': '+r[1]});
+    return L[0]+'\n'+rows.join('\n');
+  }
+  f.onsubmit=function(e){e.preventDefault();if(!f.reportValidity())return;
+    window.open('https://wa.me/966566898320?text='+encodeURIComponent(msg()),'_blank')};
+  document.getElementById('bookMail').onclick=function(){if(!f.reportValidity())return;
+    location.href='mailto:tariqalhazmi300@gmail.com?subject='+encodeURIComponent(html.lang==='en'?'Meeting request':'طلب موعد')+'&body='+encodeURIComponent(msg())};
 })();
 </script>
 </body>
